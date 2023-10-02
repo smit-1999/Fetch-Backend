@@ -33,6 +33,7 @@ def add_to_points():
 
     except Error as e:
         print(e)
+        return e,500
     finally:
         if conn:
             conn.close()
@@ -45,15 +46,18 @@ def check_balance():
     try:
         c = conn.cursor()
         c.execute("SELECT payer,SUM(points) as totalPoints FROM points GROUP BY payer")
-        res=[]
+        res={}
         myresult = c.fetchall()
         for x in myresult:
-            res.append(x)
             print(x)
+            if x[0] not in res:
+                res[x[0]] = x[1]
+            else:
+                res[x[0]] += x[1]
 
     except Error as e:
         print(e)
-        return e
+        return e,500
     finally:
         #do nothing1
         a=1
