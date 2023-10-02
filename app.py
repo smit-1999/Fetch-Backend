@@ -1,6 +1,5 @@
-import sqlite3
 from flask import Flask, request
-from sqlite3 import Error
+from models.create_table import create_points_table
 from routes.add_points import add_points
 from routes.check_balance import check_balance
 from routes.spend_points import spend_points
@@ -22,22 +21,5 @@ def spend_some_points():
      
 
 if __name__ == "__main__":
-
-    """ create a database connection to a SQLite database """
-    try:
-        conn = sqlite3.connect('./database.db')
-        c = conn.cursor()
-        c.execute('''
-                    CREATE TABLE IF NOT EXISTS points
-                    ([id] INTEGER PRIMARY KEY AUTOINCREMENT,
-                    [payer] TEXT,
-                    [points] INTEGER,
-                    [timestamp] DATETIME)
-                ''')
-        conn.commit()
-    except Error as e:
-        print(e)
-    finally:
-        if conn:
-            conn.close()
+    create_points_table()
     app.run(host='127.0.0.1',port=8000)  
