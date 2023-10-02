@@ -1,14 +1,18 @@
 # Fetch-Backend
 
 A simple API built for managing points for Fetch backend challenge.
-It is built using Python library Flask and SQLITE3.
+It is built using Python library Flask and sqlite3.
 
 # Installation
 
-Make sure python3 is installed on your system
-Install sqlite3 and flask using pip3
+Make sure _python3_ is installed on your system
+Install _flask_ using pip3
 
-pip3 install flask
+```bash
+$ pip3 install flask
+```
+
+_sqlite3_ is installed by default for python version >2.6
 
 pip3 install sqlite3
 
