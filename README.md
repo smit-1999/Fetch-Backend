@@ -16,4 +16,8 @@ You can install SQLITE DB Viewer tool to check the entries in database.
 
 # Setup
 
-Run python3 app.py to start the server on port 8000
+Run the following command to start the server on port 8000
+
+```bash
+$ python3 app.py
+```
