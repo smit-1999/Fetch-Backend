@@ -1,0 +1,32 @@
+1. Why did you choose the tools, libraries, and language you used for the coding exercise?
+I have chosen Python library Flask and sqlite3. 
+
+Flask is one of the lightweight modules in Python commonly used for building APIs.
+It has enough community support and basic CRUD operations can be easily managed using Flask. 
+For small scale applications with simple functions, it is a great choice.
+
+sqlite3 is used for the database because of the flexibility. For small standalone applications not having multiple concurrent users 
+sqlite3 can be easily be a good fit.
+
+2. What are the advantages and disadvantages of your solution?
+
+The main advantage of my solution is that it can be easily setup and running with minimal effort. 
+One just requires Python3 along with a few libraries like Flask and sqlite3 and it is good to run. 
+There are minimal external dependencies making it very portable and easy to spin up the server.
+
+The disadvantage is that the system is not scalable. There is no user authentication, hence anyone can access
+the database making it vulnerable. Working with distributed systems or with multiple thousands of users where performance at scale 
+is of importance: this system is likely to fail.
+
+3. What has been a favorite school/personal project thus far? What about it that challenged you?
+During my undergraduate studies in a course titled Data Mining, we had to implement market basket analysis using 
+Apriori and FP Tree algorithm. Given a dataset 10,000 transactions in a store,  we needed to find the most common occurring patterns which
+could be useful for the customer. The challenge was that it had to be done from scratch without any library function.
+These are recursive algorithms and given a huge dataset of 10,000 orders, debugging the algorithm became difficult.
+Visualizing the tree, checking which subtree was not being created, traversing links of every node to reach the end
+became tough because of the scale of the dataset. In addition to that, there were no references of the implementation
+online. I spent multiple sleepless nights visualizing the tree in my head, braeking it into chunks and debugging. 
+
+After burning the midnight oil, I was finally able to achieve it. We scored the highest marks in the project as no other
+team was successfully able to implement it entirely. It taught me that debugging patiently, going to the root of the problem
+without giving up and coffee are a few key traits everyone shouldd evelop over time. 
