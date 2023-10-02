@@ -72,7 +72,6 @@ def add_to_points():
     if points < 0:
         return handle_deduction(json)
 
-    print('is error here')
     conn = sqlite3.connect('./database.db')
     try:
         c = conn.cursor()
@@ -98,7 +97,6 @@ def check_balance():
         res={}
         myresult = c.fetchall()
         for x in myresult:
-            print(x)
             if x[0] not in res:
                 res[x[0]] = x[1]
             else:
