@@ -30,7 +30,6 @@ def add_to_points():
         c.execute("INSERT INTO points (payer,points,timestamp) VALUES (?, ?, ?)", (payer, points, timestamp))
         conn.commit()
         conn.close()
-        print('in main')
 
     except Error as e:
         print(e)
@@ -39,6 +38,26 @@ def add_to_points():
             conn.close()
 
     return "Successfully added point",200
+
+@app.route('/balance', methods=['GET'])
+def check_balance():
+    conn = sqlite3.connect('./database.db')
+    try:
+        c = conn.cursor()
+        c.execute("SELECT payer,SUM(points) as totalPoints FROM points GROUP BY payer")
+        res=[]
+        myresult = c.fetchall()
+        for x in myresult:
+            res.append(x)
+            print(x)
+
+    except Error as e:
+        print(e)
+        return e
+    finally:
+        #do nothing1
+        a=1
+    return res
 
 if __name__ == "__main__":
 
